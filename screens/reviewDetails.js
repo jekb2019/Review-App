@@ -1,16 +1,19 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { globalStyles } from '../styles/global';
+import Card from '../shared/card';
 
-export default function ReviewDetails({ navigation }) {
-    const pressHandler = () => {
-        navigation.goBack();
-    }
+// 전달받은 정보는 route prop으로 접근할 수 있다 
+export default function ReviewDetails({ route, navigation }) {
+    const {title, body, rating} = route.params;
 
     return(
         <View style={globalStyles.container}>
-            <Text>Review Details Screen</Text>
-            <Button title='back to home screen' onPress={pressHandler}/>
+            <Card>
+                <Text>{title}</Text>
+                <Text>{body}</Text>
+                <Text>{rating}</Text>
+            </Card>
         </View>
     )
 }
