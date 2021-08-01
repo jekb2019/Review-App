@@ -3,7 +3,7 @@ import { StyleSheet, Button, TextInput, View, Text } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { Formik } from 'formik';
 
-export default function ReviewForm() {
+export default function ReviewForm({ addReview }) {
     
     return(
         <View style={globalStyles.container}>
@@ -16,8 +16,10 @@ export default function ReviewForm() {
                 }}
                 // 우리가 Form을 submit할때 실행될 함수
                 // values인자는 form을 submit할때 가지고 있는 fields의 값들을 갖고있다
-                onSubmit={(values) => {
-                    console.log(values);
+                // actions인자에는 우리가 부를수 있는 함수들이 정이되어있다. 예를들어서 form reset하기
+                onSubmit={(values, actions) => {
+                    actions.resetForm();
+                    addReview(values)
                 }}
             >
                 {(props) => (
