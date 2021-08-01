@@ -42,7 +42,6 @@ export default function Home({ navigation }) {
                 onPress={() => setModalOpen(true)}
                 style={styles.modalToggle}
             />
-
             <FlatList
                 data={reviews}
                 renderItem={({ item }) => (
