@@ -3,6 +3,7 @@ import { StyleSheet, Button, TextInput, View, Text } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import FlatButton from '../shared/button';
 
 // validation schema. 키는 Formik form에 있는 field들을 의미한다. 값으로는 validation이들어온다.
 // validation을 chaining해서 작성할 수 있다.
@@ -78,12 +79,7 @@ export default function ReviewForm({ addReview }) {
                         <Text style={globalStyles.errorText}>
                             {props.touched.rating && props.errors.rating}
                         </Text>
-                        <Button 
-                            title='submit' 
-                            color='maroon' 
-                            // props.handleSubmit은 <Formik> 태크의 onSubmit 속성에 들어있는 함수를 부른다
-                            onPress={props.handleSubmit} 
-                        />
+                        <FlatButton text='submit' onPress={props.handleSubmit} />
                     </View>
                 )}
             </Formik>
