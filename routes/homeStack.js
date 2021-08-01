@@ -1,5 +1,6 @@
 // We will configure the Stack Navigator here
 import React from 'react';
+import { Image } from 'react-native';
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/home";
 import ReviewDetails from "../screens/reviewDetails";
@@ -18,14 +19,23 @@ const HomeStack = () => (
             // navigation객체 안에는 navigation, route 두가지에 객체가 들어있다. 우리가 필요한 것은 navigation이므로
             // 미리 destructuring을 해놓은 인자를 보내주자.
             options = {( {navigation} ) => {
-                return {headerTitle: () => <Header navigation={navigation} title='Book Zone' />}
+                return {
+                    headerTitle: () => <Header navigation={navigation} title='Book Zone' />,
+                    headerTitleAlign: "center",
+                    headerStyle:{
+                        height: 60
+                    }
+                }
             }}
         />
         <Screen 
             name="Details" 
             component={ReviewDetails} 
             options = {{
-                title: "Review Details"
+                title: "Review Details",
+                headerStyle: {
+                    backgroundColor: '#eee',
+                },
             }}
         />
     </Navigator>

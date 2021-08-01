@@ -13,15 +13,9 @@ const AboutStack = () => (
         <Screen 
             name="About" 
             component={About}
-            // 옵션에 
             options = {({ navigation }) => {
                 return {headerTitle: () => <Header navigation={navigation} title='About' />}
             }}
-            // options={({ navigation }) => {
-            //     return {
-            //         headerTitle: () => <Headers navigation={navigation} title='About'/>,
-            //     }
-            // }}
         />
     </Navigator>
 )
